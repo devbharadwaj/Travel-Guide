@@ -1,0 +1,166 @@
+@CHARSET "UTF-8";
+#map-canvas {
+  height: 80%;
+  position: absolute; 
+  top: 10%; 
+  bottom: 10%; 
+  left: 0; 
+  right: 0; 
+  z-index: 0;
+  margin-left: 40%;
+  width: 60%;
+}
+ 
+#content {
+  z-index: 100;
+  position: absolute;
+  float: 10%;
+  width: 20%;
+  height: 100%;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+
+#details {
+  z-index: 100;
+  position: absolute;
+  float: top;
+  margin-left: 20%;
+  width: 20%;
+  height: 100%;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+
+#weather {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 60%;
+	height: 10%;
+  	top: 0; 
+  	left: 40%; 
+  	right: 0; 
+  	bottom: 0;
+}
+
+#fordate {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 33%;
+	height: 10%;
+  	top: 0; 
+  	left: 0; 
+  	right: 0; 
+  	bottom: 0;
+}
+#foricon {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 20%;
+	height: 10%;
+  	top: 0; 
+  	left: 30%; 
+  	right: 0; 
+  	bottom: 0;
+}
+#fordescription {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 20%;
+	height: 10%;
+  	top: 0; 
+  	left: 40%; 
+  	right: 0; 
+  	bottom: 0;	
+}
+#fortemp {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 20%;
+	height: 10%;
+  	top: 0; 
+  	left: 75%; 
+  	right: 0; 
+  	bottom: 0;
+}
+.tempdisplay h4{
+	font-size: 12px;
+	margin-top: 4px;
+}
+.datedisplay h3 {
+	font-size: 15px;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+.descriptiondisplay {
+	font-size: 12px;
+	margin-top: 25px;	
+}
+#news {
+	background: #000000;
+	color: white;
+  	z-index: 100;
+  	position: absolute;
+  	height: 10%;
+  	width: 60%;
+  	top: 90%; 
+  	left: 40%; 
+  	right: 0; 
+  	bottom: 0;	
+}
+#newsadvisor {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 20%;
+	height: 100%;
+  	top: 0; 
+  	left: 0; 
+  	right: 0; 
+  	bottom: 0;	
+}
+#newsoverall {
+	background: #004050;
+	color: white;
+	z-index: 100;
+	position: absolute;
+	width: 20%;
+	height: 100%;
+  	top: 0; 
+  	left: 0; 
+  	right: 0; 
+  	bottom: 0;	
+}
+#newsmarquee {
+	background: #004050;
+	z-index: 100;
+	position: absolute;
+	width: 80%;
+	height: 100%;
+  	top: 0; 
+  	left: 20%; 
+  	right: 0; 
+  	bottom: 0;	
+}
+.handlemarquee h3 {
+	font-size: 7px;
+}

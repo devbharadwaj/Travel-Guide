@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+<script src="js/jquery-2.1.1.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Travel Guide</title>
+</head>
+<script type="text/javascript">
+$(window).load(function(){
+	$('img.bgfade').hide();
+	var dg_H = $(window).height();
+	var dg_W = $(window).width();
+	$('#wrap').css({'height':dg_H,'width':dg_W});
+	function anim() {
+	    $("#wrap img.bgfade").first().appendTo('#wrap').fadeOut(1500);
+	    $("#wrap img").first().fadeIn(1500);
+	    setTimeout(anim, 5000);
+	}
+	anim();})
+	$(window).resize(function(){window.location.href=window.location.href})
+</script>
+<body>
+<div id="wrap">
+<img class="bgfade" src="image/w1.jpg">
+<img class="bgfade" src="image/w2.jpg">
+<img class="bgfade" src="image/w3.jpg">
+<img class="bgfade" src="image/w4.jpg">
+<img class="bgfade" src="image/w5.jpg">
+<img class="bgfade" src="image/w6.jpg">
+<img class="bgfade" src="image/w7.jpg">
+<img class="bgfade" src="image/w8.jpg">
+<img class="bgfade" src="image/w9.jpg">
+<img class="bgfade" src="image/w10.jpg">
+<img class="bgfade" src="image/w11.jpg">
+<img class="bgfade" src="image/w12.jpg">
+<img class="bgfade" src="image/w13.jpg">
+<img class="bgfade" src="image/w14.jpg">
+<img class="bgfade" src="image/w15.jpg">
+<img class="bgfade" src="image/w16.jpg">
+<img class="bgfade" src="image/w17.jpg">
+</div>
+<div id="box">
+
+<div id="lower">
+<H1><a href="map.html">Travel Guide</a></H1>
+<br>
+<form name="travelling" action="CreatePlan" onsubmit="return validateForm()" method="post">
+<label>Destination:</label>
+<input type="text" name="city" id="place" placeholder="Paris,Rome..."><br><br><br>	
+<label>From:</label>
+<input type="date" name="from" value="from">
+<label>To:</label>
+<input type="date" name="to" value="to"><br><br>
+<p>Number of places to visit each day:
+<select name="numspots">
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+  <option>6</option>
+  <option>7</option>
+</select></p>
+<input type="submit" value="Make My Itinerary!">
+</form>
+</div>
+<script>
+var items = [];
+$(document).ready(function() {
+    console.log( "ready!" );
+    $.getJSON("http://localhost:8080/TravelGuide/AllCities",function( data ) {
+    	  items = data});    
+});
+
+$( "#place" ).autocomplete({
+	  source: function (request,response) {
+	  	response($.ui.autocomplete.filter(items, request.term));
+	  }
+});
+
+function validateForm() {
+    var place = document.forms["travelling"]["place"].value;
+    if (place == "") {
+    	alert("Please enter a city name!");
+    	return false;
+    }
+    place = place.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); });
+    document.forms["travelling"]["place"].value = place;
+    if (items.indexOf(place) > -1 == false) {
+        alert("You are travelling to a city not in our database!\nPlease choose one of the suggestions!");
+        return false;
+    }
+    var to = new Date(document.forms["travelling"]["to"].value);
+    var from = new Date(document.forms["travelling"]["from"].value);
+    if (document.forms["travelling"]["from"].value == "") {
+    	alert("When are you leaving?");
+    	return false;
+    }
+    if (document.forms["travelling"]["to"].value == "") {
+    	alert("So you are not comming back? Fine then!");
+    	return false;
+    }
+    if (to - from < 0) {
+    	alert("Are you planning to travel back in time?");
+    	return false;
+    }
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+	var day = from.getDate();
+	from.setDate(day+1);
+    if(dd<10) {
+        dd='0'+dd
+    } 
+
+    if(mm<10) {
+        mm='0'+mm
+    } 
+
+    today = mm+'/'+dd+'/'+yyyy;
+    today = new Date(today);
+    if (from < today) {
+    	alert("This is not a time machine!\nWhen do you leave?");
+    	return false;
+    }
+    if (to.getDate() - today.getDate() >= 16) {
+    	alert("System Limitation!\nCannot go beyond 16 days from today.");
+    	return false;
+    }
+    return true;
+}
+</script>
+</div>
+</body>	
+</html>
