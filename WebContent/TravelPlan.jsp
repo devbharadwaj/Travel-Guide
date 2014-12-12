@@ -227,7 +227,7 @@ $(function() {
         text +="<h3 align='center'>Enjoy Your Trip!</h3>";
         var opened = window.open("");
         opened.document.write(
-        '<html><head><title>Final Itinerary</title></head><body background="image/zz.jpg"><div style="font-family: Nunito, arial, verdana;width: 500px; margin: 0 auto; background: #d3d3d3; color: #000;opacity: 0.7"><H1 style="margin-top:1cm" align="center">${city}, ${country}</H1>'+text+'<input type="submit" value="Print" style="margin-left:45%"/></div></body></html>');
+        '<html><head><title>Final Itinerary</title></head><body background="image/zz.jpg"><div style="font-family: Nunito, arial, verdana;width: 500px; margin: 0 auto; background: #d3d3d3; color: #000;opacity: 0.7"><H1 style="margin-top:1cm" align="center">${city}, ${country}</H1>'+text+'<input type="submit" value="Print" style="margin-left:45%" onclick="window.print()"/></div></body></html>');
     }       
 	
     var directionsService = new google.maps.DirectionsService();
