@@ -24,7 +24,7 @@ Jquery<br>
 Apache Tomcat
 
 
-# Walkthrough
+## Walkthrough
 
 User input screen<br>
 ![alt tag](https://cloud.githubusercontent.com/assets/5769910/5987652/b947b14a-a905-11e4-9e1d-e4123b6407cc.png)
